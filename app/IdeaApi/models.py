@@ -38,7 +38,9 @@ class Idea(models.Model):
   collaborators = models.IntegerField(null=True)
   postingTime = models.DateTimeField(auto_now_add=True, null=True)
 
-  user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="idea")
+  user = models.ForeignKey(User, on_delete=models.CASCADE, 
+  related_name="idea")
+  # comment = models.ForeignKey(Suggestion,on_delete=models.CASCADE)
   def __str__(self):
     return self.ideatitle
 
@@ -58,3 +60,10 @@ class Notification(models.Model):
   def __str__(self):
     return self.notiType
 
+class Suggestion(models.Model):
+  ideaId = models.ForeignKey(Idea, on_delete=models.CASCADE)
+  user = models.ForeignKey(User,on_delete=models.CASCADE)
+  content = models.CharField(max_length=300,default=None)
+  def __str__(self):
+    return self.user
+  
