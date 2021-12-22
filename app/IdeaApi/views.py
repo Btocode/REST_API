@@ -6,7 +6,7 @@ from rest_framework.mixins import (CreateModelMixin, DestroyModelMixin,
 from rest_framework.serializers import Serializer
 
 from .models import Idea, Suggestion, User
-from .serializers import ideaSerializer, suggSerializer, userSerializer
+from .serializers import ideaSerializer, suggSerializer, userSerializer,LoginSerializer
 
 
 # Group1 has the ability to view and create data 
